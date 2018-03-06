@@ -1,12 +1,18 @@
 class RecipesController < ApplicationController
 
+  get '/recipes' do
+    @recipes = Recipe.all
+    erb :'recipes/index'
+  end
+
   get '/recipes/new' do
     erb :'recipes/new'
   end
 
-  get '/recipes' do
-    @recipes = Recipe.all
-    erb :'recipes/index'
+  post '/recipes' do
+    raise params.inspect
+    # @recipe = Recipe.create(params)
+    # redirect to "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/:id' do
@@ -24,13 +30,8 @@ class RecipesController < ApplicationController
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
-    @recipe.directions = params[:directions]
+    recipe.directions = params[:directions]
     @recipe.save
-    redirect to "/recipes/#{@recipe.id}"
-  end
-
-  post '/recipes' do
-    @recipe = Recipe.create(params)
     redirect to "/recipes/#{@recipe.id}"
   end
 
