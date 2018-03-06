@@ -39,9 +39,13 @@ class IngredientsController < ApplicationController
       redirect to '/login'
     end
   end
+
   post '/ingredients' do
+    if logged_in?
 
-
+    else
+      redirect to '/login'
+    end
   end
 
   patch '/recipe/:id' do

@@ -1,1 +1,6 @@
+<h1>Edit Recipe</h1>
 <!-- Form to edit ingredient -->
+<form action="/ingredients/<%=@ingredient.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="value" value="name">
+</form>
