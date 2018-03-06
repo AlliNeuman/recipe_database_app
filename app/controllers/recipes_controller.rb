@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 
   get '/recipes' do
     @recipes = Recipe.all
-    erb :'recipes/recipes'
+    erb :'recipes/index'
   end
 
   get '/recipes/:id' do
