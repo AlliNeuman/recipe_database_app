@@ -57,8 +57,3 @@ class IngredientsController < ApplicationController
   end
 
 end
-
-
-
-
-end
